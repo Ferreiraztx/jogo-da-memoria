@@ -215,14 +215,14 @@
                     card.dataset.value = image;
 
                     const img = document.createElement('img');
-                    img.src = `${image}`;
+                    img.src = `${image}`;  // Caminho direto (sem pasta)
                     img.alt = `Imagem ${image}`;
                     
                     // Debug: mostra erro no console se a imagem não carregar
                     img.onerror = () => {
-                        console.error("Erro ao carregar:", image);
-                        card.style.backgroundColor = "#ff6b6b";
-                        card.innerHTML = "<span>❌</span>";
+                        console.error(`❌ Erro ao carregar: ${image}`);
+                        card.innerHTML = "Imagem não encontrada!";  // Mensagem visível
+                        card.style.backgroundColor = "#ffdddd";  // Fundo vermelho claro
                     };
                     
                     card.appendChild(img);
